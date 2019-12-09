@@ -1056,10 +1056,10 @@ class Canvas(ContentResource):
             "add_image_annotation is deprecated; use set_image_annotation() please")
         return self.set_image_annotation(imgid, iiif)
 
-    def set_image_annotation(self, imgid, iiif=True):
+    def set_image_annotation(self, imgid, label="", iiif=True):
         """Make simple image annotation."""
         anno = self.annotation()
-        image = anno.image(ident=imgid, iiif=iiif)
+        image = anno.image(ident=imgid, label=label, iiif=iiif)
         if iiif:
             image.set_hw_from_iiif()
         else:
